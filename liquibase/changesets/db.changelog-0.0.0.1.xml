@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<databaseChangeLog 
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"> 
+    <changeSet author="Javier" id="1">
+        <createTable tableName="Orders">
+            <column name="ID" type="INT" autoIncrement="true">
+                <constraints nullable="true" primaryKey="true" unique="true"/>
+            </column>
+            <column name="OrdersID" type="INT">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+            <column name="OrderDate" type="DATE">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+            <column name="OrderPriorityID" type="INT">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+            <column name="OrderQuantity" type="NUMBER(10,2)">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+            <column name="Sales" type="NUMBER(10,4)">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+            <column name="Discount" type="NUMBER(10,2)">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+            <column name="ShipModeID" type="INT">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+            <column name="Profit" type="NUMBER(10,2)">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+            <column name="ShippingCost" type="NUMBER(10,2)">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+            <column name="CustomerID" type="INT">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+            <column name="ProductID" type="INT">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+            <column name="ShipDate" type="DATE">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Javier" id="2">
+        <createTable tableName="OrderPriority">
+            <column name="ID" type="INT" autoIncrement="true">
+                <constraints nullable="true" primaryKey="true" unique="true"/>
+            </column>
+            <column name="Name" type="VARCHAR(200)">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Javier" id="3">
+        <createTable tableName="ShipMode">
+            <column name="ID" type="INT" autoIncrement="true">
+                <constraints nullable="true" primaryKey="true" unique="true"/>
+            </column>
+            <column name="Name" type="VARCHAR(200)">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Javier" id="4">
+        <createTable tableName="Customer">
+            <column name="ID" type="INT" autoIncrement="true">
+                <constraints nullable="true" primaryKey="true" unique="true"/>
+            </column>
+            <column name="Name" type="VARCHAR(200)">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+            <column name="RegionID" type="INT">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+            <column name="SegmentID" type="INT">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Javier" id="5">
+        <createTable tableName="Province">
+            <column name="ID" type="INT" autoIncrement="true">
+                <constraints nullable="true" primaryKey="true" unique="true"/>
+            </column>
+            <column name="Name" type="VARCHAR(50)">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Javier" id="6">
+        <createTable tableName="Region">
+            <column name="ID" type="INT" autoIncrement="true">
+                <constraints nullable="true" primaryKey="true" unique="true"/>
+            </column>
+            <column name="Name" type="VARCHAR(50)">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+            <column name="ProvinceID" type="INT">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Javier" id="7">
+        <createTable tableName="Segment">
+            <column name="ID" type="INT" autoIncrement="true">
+                <constraints nullable="true" primaryKey="true" unique="true"/>
+            </column>
+            <column name="Name" type="VARCHAR(50)">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Javier" id="8">
+        <createTable tableName="Product">
+            <column name="ID" type="INT" autoIncrement="true">
+                <constraints nullable="true" primaryKey="true" unique="true"/>
+            </column>
+            <column name="Name" type="VARCHAR(100)">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+            <column name="ProductSubcategoryID" type="INT">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+            <column name="ProductContainerID" type="INT">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+            <column name="BaseMargin" type="NUMBER(10,2)">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+            <column name="UnitPrice" type="NUMBER(10,2)">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Javier" id="9">
+        <createTable tableName="ProductSubcategory">
+            <column name="ID" type="INT" autoIncrement="true">
+                <constraints nullable="true" primaryKey="true" unique="true"/>
+            </column>
+            <column name="Name" type="VARCHAR(100)">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+            <column name="ProductCategoryID" type="INT">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Javier" id="10">
+        <createTable tableName="ProductCategory">
+            <column name="ID" type="INT" autoIncrement="true">
+                <constraints nullable="true" primaryKey="true" unique="true"/>
+            </column>
+            <column name="Name" type="VARCHAR(100)">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Javier" id="11">
+        <createTable tableName="ProductContainer">
+            <column name="ID" type="INT" autoIncrement="true">
+                <constraints nullable="true" primaryKey="true" unique="true"/>
+            </column>
+            <column name="Name" type="VARCHAR(50)">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Javier" id="12">
+        <addForeignKeyConstraint baseColumnNames="OrderPriorityID" baseTableName="Orders" constraintName="FK_ORDERS_ORDER_PRIORITY" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="OrderPriority"/>
+    </changeSet>
+    <changeSet author="Javier" id="13">
+        <addForeignKeyConstraint baseColumnNames="ShipModeID" baseTableName="Orders" constraintName="FK_ORDERS_SHIP_MODE" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ShipMode"/>
+    </changeSet>
+    <changeSet author="Javier" id="14">
+        <addForeignKeyConstraint baseColumnNames="ProvinceID" baseTableName="Region" constraintName="FK_REGION_PROVINCE" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="Province"/>
+    </changeSet>
+    <changeSet author="Javier" id="15">
+        <addForeignKeyConstraint baseColumnNames="RegionID" baseTableName="Customer" constraintName="FK_CUSTOMER_REGION" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="Region"/>
+    </changeSet>
+    <changeSet author="Javier" id="16">
+        <addForeignKeyConstraint baseColumnNames="SegmentID" baseTableName="Customer" constraintName="FK_CUSTOMER_SEGMENT" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="Segment"/>
+    </changeSet>
+    <changeSet author="Javier" id="17">
+        <addForeignKeyConstraint baseColumnNames="CustomerID" baseTableName="Orders" constraintName="FK_ORDERS_CUSTOMER" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="Customer"/>
+    </changeSet>
+    <changeSet author="Javier" id="18">
+        <addForeignKeyConstraint baseColumnNames="ProductCategoryID" baseTableName="ProductSubcategory" constraintName="FK_PRODUCT_SUBCATEGORY_PRODUCT_CATEGORY" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ProductCategory"/>
+    </changeSet>
+    <changeSet author="Javier" id="19">
+        <addForeignKeyConstraint baseColumnNames="ProductSubcategoryID" baseTableName="Product" constraintName="FK_PRODUCT_SUBCATEGORY_CATEGORY" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ProductSubcategory"/>
+    </changeSet>
+    <changeSet author="Javier" id="20">
+        <addForeignKeyConstraint baseColumnNames="ProductContainerID" baseTableName="Product" constraintName="FK_PRODUCT_CONTAINER" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ProductContainer"/>
+    </changeSet>
+    <changeSet author="Javier" id="21">
+        <addForeignKeyConstraint baseColumnNames="ProductID" baseTableName="Orders" constraintName="FK_ORDERS_PRODUCT" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="Product"/>
+    </changeSet>
+</databaseChangeLog> 
